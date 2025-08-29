@@ -1,6 +1,5 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import "./SearchBox.css"
 import { useState } from 'react';
@@ -16,6 +15,7 @@ export default function SearchBox() {
         let jsonResponse = await response.json();
         // console.log(jsonResponse);
         let result = {
+            city: city,
             temp: jsonResponse.main.temp,
             tempMin: jsonResponse.main.temp_min,
             tempMax: jsonResponse.main.temp_max,
@@ -39,7 +39,7 @@ export default function SearchBox() {
 
     return (
         <div className='SearchBox'>
-            <h1>Search for the weather</h1>
+            {/* <h1>Search for the weather</h1> */}
             <form action=""  onSubmit={handleSubmit}>
                 <TextField id="city" label="City Name" variant="outlined" required value={city} onChange={handleChage}/>
                 <br /><br />
