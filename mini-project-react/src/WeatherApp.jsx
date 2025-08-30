@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import SearchBox from './SearchBox'
 import InfoBox from './InfoBox'
 
@@ -12,11 +13,15 @@ export default function WeatherApp() {
         weather: "haze",
     })
 
+    let updateInfo = (newInfo) => {
+        setWeatherInfo(newInfo);
+    }
+
     return (
-        <div style={{textAlign: "center"}}>
+        <div style={{ textAlign: "center" }}>
             <h1>Weather App</h1>
-            <SearchBox/>
-            <InfoBox/>
+            <SearchBox updateInfo={updateInfo} />
+            <InfoBox info={weatherInfo} />
         </div>
     )
 }
